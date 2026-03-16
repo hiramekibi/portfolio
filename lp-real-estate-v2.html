@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みどり不動産｜信州の不動産売却・無料査定</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green-deep: #2D5A3D;
+  --green-mid: #3E7A52;
+  --green-light: #5A9E6F;
+  --green-pale: #E8F3EC;
+  --green-mist: #F2F8F4;
+  --cream: #FDFCF8;
+  --white: #FFFFFF;
+  --text-main: #2C2C2C;
+  --text-sub: #5A5A5A;
+  --text-light: #888888;
+  --red-cta: #D94032;
+  --red-cta-hover: #C0352A;
+  --border: rgba(45, 90, 61, 0.1);
+  --shadow-sm: 0 2px 12px rgba(45,90,61,0.06);
+  --shadow-md: 0 8px 32px rgba(45,90,61,0.08);
+  --shadow-lg: 0 16px 48px rgba(45,90,61,0.12);
+}
+
+html { scroll-behavior: smooth; font-size: 17px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-main);
+  background: var(--cream);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.en { font-family: 'Outfit', sans-serif; }
+
+/* ========== HEADER ========== */
+header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 12px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 1rem; color: var(--green-deep);
+}
+.logo-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: var(--green-deep);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1rem;
+}
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-tel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--green-deep);
+}
+.header-tel small {
+  display: block; font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.6rem; font-weight: 500; color: var(--text-light);
+}
+.header-cta {
+  padding: 10px 22px;
+  background: var(--red-cta);
+  color: white;
+  font-size: 0.8rem; font-weight: 700;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.header-cta:hover { background: var(--red-cta-hover); }
+
+/* ========== HERO ========== */
+.hero {
+  padding: 100px 40px 60px;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(15,35,25,0.75) 0%, rgba(25,55,40,0.6) 40%, rgba(35,70,50,0.5) 100%),
+    url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center 35%;
+}
+.hero-inner {
+  max-width: 1100px; width: 100%; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-size: 0.7rem; font-weight: 700;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.6;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.hero-title .em-green {
+  color: #A8E6B8;
+  background: none;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+.hero-sub {
+  font-size: 0.92rem;
+  line-height: 2;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 24px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+}
+
+/* ===== 改善1: FVフォーム ===== */
+.hero-form {
+  background: rgba(255,255,255,0.97);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1);
+  border: none;
+}
+.hero-form-title {
+  font-size: 1.1rem; font-weight: 900;
+  color: var(--green-deep);
+  text-align: center;
+  margin-bottom: 4px;
+}
+.hero-form-sub {
+  font-size: 0.75rem; color: var(--text-light);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+.form-label .req {
+  font-size: 0.65rem; font-weight: 700;
+  color: white; background: var(--red-cta);
+  padding: 1px 6px; border-radius: 3px;
+  margin-left: 6px;
+}
+.form-input, .form-select {
+  width: 100%; padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  transition: border-color 0.3s;
+  background: white;
+  appearance: none;
+}
+.form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--green-mid);
+}
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--red-cta);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem; font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.form-submit:hover {
+  background: var(--red-cta-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(217,64,50,0.3);
+}
+.form-note {
+  font-size: 0.68rem; color: var(--text-light);
+  text-align: center; margin-top: 10px; line-height: 1.6;
+}
+.form-badges {
+  display: flex; justify-content: center; gap: 12px;
+  margin-top: 12px;
+}
+.form-badge {
+  font-size: 0.65rem; font-weight: 700;
+  color: var(--green-deep);
+  background: var(--green-pale);
+  padding: 3px 10px; border-radius: 4px;
+}
+
+/* ========== TRUST BAR ========== */
+.trust-bar {
+  background: var(--green-deep);
+  padding: 24px 40px;
+}
+.trust-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; color: white; }
+.trust-icon { font-size: 1.4rem; }
+.trust-text { font-size: 0.78rem; font-weight: 500; line-height: 1.5; }
+.trust-text strong { font-weight: 700; font-size: 0.88rem; display: block; }
+
+/* ========== 改善4: 実績数字セクション ========== */
+.numbers-section { background: var(--cream); padding: 60px 40px; }
+.numbers-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.number-card {
+  text-align: center;
+  padding: 28px 16px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.number-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.8rem; font-weight: 800;
+  color: var(--green-deep);
+  line-height: 1;
+}
+.number-value span { font-size: 1rem; font-weight: 700; }
+.number-label {
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--text-sub);
+  margin-top: 8px;
+}
+
+/* ========== SECTION COMMON ========== */
+.section { padding: 80px 40px; }
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 6px;
+}
+.section-title {
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 900; line-height: 1.5;
+  margin-bottom: 14px;
+}
+.section-desc {
+  font-size: 0.88rem; color: var(--text-sub);
+  max-width: 640px; margin-bottom: 40px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* ========== WORRY ========== */
+.worry-section { background: var(--green-pale); }
+.worry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.worry-card {
+  background: white; padding: 22px 24px; border-radius: 12px;
+  display: flex; align-items: flex-start; gap: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.worry-icon {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 10px;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.worry-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 3px; }
+.worry-card p { font-size: 0.78rem; color: var(--text-sub); line-height: 1.7; }
+.worry-lead {
+  text-align: center; margin-top: 36px;
+  font-size: 1.15rem; font-weight: 900; color: var(--green-deep);
+}
+.worry-lead .arrow { display: block; font-size: 1.5rem; margin-bottom: 6px; color: var(--green-light); }
+
+/* ========== REASON ========== */
+.reason-section { background: var(--cream); }
+.reason-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.reason-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  box-shadow: var(--shadow-sm); transition: transform 0.3s, box-shadow 0.3s;
+}
+.reason-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.reason-thumb {
+  width: 100%; aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; color: white; font-weight: 500; text-align: center; padding: 16px;
+}
+.reason-card:nth-child(1) .reason-thumb { background: linear-gradient(135deg, #5A9E6F, #3E7A52); }
+.reason-card:nth-child(2) .reason-thumb { background: linear-gradient(135deg, #6BA87E, #4A8A5E); }
+.reason-card:nth-child(3) .reason-thumb { background: linear-gradient(135deg, #7CB48D, #5A9E6F); }
+.reason-body { padding: 24px 20px; }
+.reason-body .num-label {
+  font-family: 'Outfit', sans-serif; font-size: 0.65rem; font-weight: 700;
+  color: var(--green-light); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px;
+}
+.reason-body h3 { font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; line-height: 1.5; }
+.reason-body p { font-size: 0.8rem; color: var(--text-sub); line-height: 1.9; }
+
+/* ========== AREA ========== */
+.area-section { background: var(--green-mist); }
+.area-map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.area-map-placeholder {
+  width: 100%; aspect-ratio: 4/3; border-radius: 16px;
+  background: linear-gradient(135deg, var(--green-pale), var(--green-mist));
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; color: var(--text-light); font-weight: 500; text-align: center; padding: 20px;
+}
+.area-list { display: flex; flex-direction: column; gap: 18px; }
+.area-group h3 {
+  font-size: 0.88rem; font-weight: 700; color: var(--green-deep);
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 2px solid var(--green-pale);
+}
+.area-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.area-tag {
+  padding: 6px 14px; background: white; border: 1px solid var(--border);
+  border-radius: 20px; font-size: 0.76rem; font-weight: 500; color: var(--text-main); transition: all 0.3s;
+}
+.area-tag:hover { background: var(--green-deep); color: white; border-color: var(--green-deep); }
+.area-tag.main { background: var(--green-deep); color: white; border-color: var(--green-deep); font-weight: 700; }
+.area-note {
+  margin-top: 20px; padding: 14px 18px; background: white; border-radius: 10px;
+  font-size: 0.76rem; color: var(--text-sub); line-height: 1.8; border-left: 3px solid var(--green-mid);
+}
+.area-note strong { color: var(--green-deep); }
+
+/* ========== STAFF (改善3) ========== */
+.staff-section { background: var(--cream); }
+.staff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.staff-photo {
+  width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden;
+  background: linear-gradient(135deg, var(--green-pale), var(--green-mist));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; color: var(--text-light); font-weight: 500; text-align: center; padding: 20px;
+  box-shadow: var(--shadow-md);
+}
+.staff-info h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 4px; }
+.staff-info .staff-role { font-size: 0.78rem; color: var(--green-mid); font-weight: 700; margin-bottom: 16px; }
+.staff-info p { font-size: 0.88rem; line-height: 2.1; color: var(--text-sub); margin-bottom: 12px; }
+.staff-info .staff-quote {
+  padding: 16px 20px; background: var(--green-mist); border-radius: 12px;
+  font-size: 0.85rem; font-weight: 500; color: var(--green-deep); line-height: 1.9;
+  border-left: 3px solid var(--green-mid); margin-top: 16px;
+}
+.staff-certs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.staff-cert {
+  padding: 4px 12px; background: var(--green-pale); border-radius: 4px;
+  font-size: 0.7rem; font-weight: 700; color: var(--green-deep);
+}
+
+/* ========== FLOW ========== */
+.flow-section { background: var(--green-mist); }
+.flow-steps { display: flex; gap: 0; }
+.flow-step { flex: 1; text-align: center; padding: 28px 16px; position: relative; }
+.flow-step:not(:last-child)::after {
+  content: '▶'; position: absolute; right: -10px; top: 50%;
+  transform: translateY(-50%); color: var(--green-light); font-size: 1rem; z-index: 1;
+}
+.flow-num {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--green-deep); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 800;
+  margin: 0 auto 14px;
+}
+.flow-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+.flow-step p { font-size: 0.75rem; color: var(--text-sub); line-height: 1.7; }
+.flow-free {
+  display: inline-block; margin-top: 6px; padding: 2px 10px;
+  background: var(--red-cta); color: white;
+  font-size: 0.65rem; font-weight: 700; border-radius: 4px;
+}
+
+/* ========== VOICE ========== */
+.voice-section { background: var(--cream); }
+.voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.voice-card {
+  background: white; border-radius: 16px; padding: 28px 24px;
+  box-shadow: var(--shadow-sm); position: relative;
+}
+.voice-card::before {
+  content: '"'; font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem; font-weight: 800; color: var(--green-pale);
+  position: absolute; top: 10px; left: 18px; line-height: 1;
+}
+.voice-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.voice-avatar {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.voice-name { font-size: 0.82rem; font-weight: 700; }
+.voice-detail { font-size: 0.68rem; color: var(--text-light); }
+.voice-text { font-size: 0.82rem; line-height: 2; color: var(--text-sub); }
+.voice-stars { margin-top: 10px; color: #B8963E; font-size: 0.85rem; letter-spacing: 2px; }
+
+/* ========== FAQ ========== */
+.faq-section { background: var(--green-mist); }
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.faq-q { padding: 18px 22px; display: flex; align-items: center; gap: 14px; font-size: 0.88rem; font-weight: 700; }
+.faq-q-icon {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--green-deep); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 800;
+}
+.faq-a { padding: 0 22px 18px 66px; font-size: 0.8rem; color: var(--text-sub); line-height: 1.9; }
+
+/* ========== CTA ========== */
+.cta-section {
+  background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+  padding: 72px 40px; text-align: center; color: white;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-section .section-title { color: white; margin-bottom: 10px; }
+.cta-desc { font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 32px; line-height: 2; }
+.cta-tel {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.4rem; font-weight: 800; margin-bottom: 4px;
+}
+.cta-tel-note { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+.btn-white {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 18px 48px; background: white; color: var(--green-deep);
+  font-size: 1rem; font-weight: 700; border-radius: 8px;
+  transition: all 0.3s; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ========== COMPANY ========== */
+.company-section { background: var(--cream); }
+.company-table {
+  max-width: 800px; margin: 0 auto;
+  background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.company-row {
+  display: grid; grid-template-columns: 160px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.company-row:last-child { border-bottom: none; }
+.company-row dt {
+  padding: 14px 22px; font-size: 0.8rem; font-weight: 700;
+  background: var(--green-mist); color: var(--green-deep);
+  display: flex; align-items: center;
+}
+.company-row dd { padding: 14px 22px; font-size: 0.82rem; color: var(--text-sub); }
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--green-deep); padding: 28px 40px;
+  text-align: center; color: rgba(255,255,255,0.5); font-size: 0.7rem;
+}
+footer .logo-footer { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 6px; }
+
+/* ===== 改善5: スマホ追従CTA ===== */
+.mobile-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; width: 100%; z-index: 99;
+  background: white; padding: 10px 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  border-top: 1px solid var(--border);
+}
+.mobile-cta-inner { display: flex; gap: 10px; max-width: 600px; margin: 0 auto; }
+.mobile-cta-tel, .mobile-cta-form {
+  flex: 1; padding: 12px; border-radius: 8px;
+  font-size: 0.82rem; font-weight: 700; text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.mobile-cta-tel { background: white; border: 2px solid var(--green-deep); color: var(--green-deep); }
+.mobile-cta-form { background: var(--red-cta); color: white; border: none; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+  header { padding: 10px 16px; }
+  .header-tel { display: none; }
+  .header-cta { padding: 8px 14px; font-size: 0.72rem; }
+  .hero { padding: 80px 20px 40px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .section { padding: 56px 20px; }
+  .worry-grid, .reason-grid, .voice-grid, .services-grid { grid-template-columns: 1fr; }
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .flow-steps { flex-direction: column; }
+  .flow-step:not(:last-child)::after { content: '▼'; right: auto; left: 50%; top: auto; bottom: -10px; transform: translateX(-50%); }
+  .area-map-grid, .staff-grid { grid-template-columns: 1fr; }
+  .company-row { grid-template-columns: 1fr; }
+  .company-row dt { padding: 10px 18px 2px; background: transparent; }
+  .company-row dd { padding: 2px 18px 10px; }
+  .trust-inner { gap: 16px; }
+  .cta-tel { font-size: 1.8rem; }
+  .mobile-cta { display: block; }
+  footer { padding-bottom: 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon">🌿</div>
+    みどり不動産
+  </div>
+  <div class="header-right">
+    <div class="header-tel">
+      <small>お電話でのご相談</small>
+      <span class="en">0120-XXX-XXX</span>
+    </div>
+    <a href="#cta" class="header-cta">無料査定はこちら</a>
+  </div>
+</header>
+
+<!-- HERO（改善1: FVフォーム） -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">🏠 信州エリア地域密着 20年</div>
+      <h1 class="hero-title">
+        その土地の価値、<br>
+        <span class="em-green">地元の私たち</span>が<br>
+        いちばん知っています。
+      </h1>
+      <p class="hero-sub">
+        「相続した実家、どうすればいい？」「空き家を手放したい」——<br>
+        信州で20年。地域の相場と暮らしを知り尽くした私たちが、<br>
+        あなたの大切な不動産を、適正価格で売却するお手伝いをします。
+      </p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-form">
+        <p class="hero-form-title">まずは無料査定から</p>
+        <p class="hero-form-sub">最短60秒・売却の義務はありません</p>
+        <div class="form-group">
+          <label class="form-label">物件の種類 <span class="req">必須</span></label>
+          <select class="form-select">
+            <option>選択してください</option>
+            <option>一戸建て</option>
+            <option>マンション</option>
+            <option>土地</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">物件の所在地 <span class="req">必須</span></label>
+          <select class="form-select">
+            <option>市区町村を選択</option>
+            <option>松本市</option>
+            <option>塩尻市</option>
+            <option>安曇野市</option>
+            <option>大町市</option>
+            <option>諏訪市</option>
+            <option>長野市</option>
+            <option>上田市</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">お名前 <span class="req">必須</span></label>
+            <input type="text" class="form-input" placeholder="山田 太郎">
+          </div>
+          <div class="form-group">
+            <label class="form-label">電話番号 <span class="req">必須</span></label>
+            <input type="tel" class="form-input" placeholder="090-XXXX-XXXX">
+          </div>
+        </div>
+        <button class="form-submit">無料で査定を申し込む</button>
+        <p class="form-note">※ 個人情報は厳重に管理いたします。しつこい営業は一切行いません。</p>
+        <div class="form-badges">
+          <span class="form-badge">✅ 査定料0円</span>
+          <span class="form-badge">✅ 秘密厳守</span>
+          <span class="form-badge">✅ 最短即日</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-icon">✅</span>
+      <div class="trust-text"><strong>査定料 0円</strong>完全無料でご対応</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🏡</span>
+      <div class="trust-text"><strong>地域密着 20年</strong>信州の相場を熟知</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <div class="trust-text"><strong>売却成約率 94%</strong>適正価格で早期売却</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📞</span>
+      <div class="trust-text"><strong>相談だけでもOK</strong>無理な営業は一切なし</div>
+    </div>
+  </div>
+</div>
+
+<!-- 改善4: 実績数字 -->
+<section class="numbers-section">
+  <div class="numbers-grid">
+    <div class="number-card">
+      <div class="number-value en">850<span>件+</span></div>
+      <p class="number-label">累計売却サポート</p>
+    </div>
+    <div class="number-card">
+      <div class="number-value en">94<span>%</span></div>
+      <p class="number-label">売却成約率</p>
+    </div>
+    <div class="number-card">
+      <div class="number-value en">98<span>%</span></div>
+      <p class="number-label">お客様満足度</p>
+    </div>
+    <div class="number-card">
+      <div class="number-value en">20<span>年</span></div>
+      <p class="number-label">地域密着の実績</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORRY -->
+<section class="section worry-section">
+  <div class="container">
+    <p class="section-label en">Worries</p>
+    <h2 class="section-title">こんなお悩み、ありませんか？</h2>
+    <div class="worry-grid">
+      <div class="worry-card">
+        <div class="worry-icon">🏚️</div>
+        <div><h3>相続した実家が空き家になっている</h3><p>管理の手間や固定資産税、近隣への影響が不安…</p></div>
+      </div>
+      <div class="worry-card">
+        <div class="worry-icon">💰</div>
+        <div><h3>いくらで売れるか見当がつかない</h3><p>地方の物件だから安く買い叩かれないか心配…</p></div>
+      </div>
+      <div class="worry-card">
+        <div class="worry-icon">📋</div>
+        <div><h3>売却の手続きがまったく分からない</h3><p>何から始めればいいのか、必要な書類も分からない…</p></div>
+      </div>
+      <div class="worry-card">
+        <div class="worry-icon">🏢</div>
+        <div><h3>大手に任せて本当に大丈夫？</h3><p>地方の物件は後回しにされないか不安…</p></div>
+      </div>
+    </div>
+    <p class="worry-lead"><span class="arrow">▼</span>そのお悩み、<strong>みどり不動産</strong>がすべて解決します。</p>
+  </div>
+</section>
+
+<!-- REASON -->
+<section class="section reason-section">
+  <div class="container">
+    <p class="section-label en">Reason</p>
+    <h2 class="section-title">選ばれる3つの理由</h2>
+    <p class="section-desc">大手にはできない「地域密着」だからこそ、あなたの不動産を最大限の価値で売却できます。</p>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="reason-thumb">📷 写真：スタッフが地域を歩く様子</div>
+        <div class="reason-body">
+          <p class="num-label en">Reason 01</p>
+          <h3>20年分の地域データで<br>適正価格を算出</h3>
+          <p>過去の成約事例・地域の開発計画・周辺環境まで考慮した査定で、相場より高い売却を実現します。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-thumb">📷 写真：お客様との打ち合わせ風景</div>
+        <div class="reason-body">
+          <p class="num-label en">Reason 02</p>
+          <h3>地元ネットワークで<br>買い手を早期発見</h3>
+          <p>地域の工務店・企業・移住希望者とのつながりで、ポータルサイトに出す前に買い手が見つかることも。</p>
+        </div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-thumb">📷 写真：笑顔の家族と鍵の受け渡し</div>
+        <div class="reason-body">
+          <p class="num-label en">Reason 03</p>
+          <h3>手続き・税金・登記まで<br>ワンストップ対応</h3>
+          <p>提携の司法書士・税理士と連携し、売却完了まで一括サポート。面倒な手続きはすべてお任せください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 改善2: AREA -->
+<section class="section area-section">
+  <div class="container">
+    <p class="section-label en">Area</p>
+    <h2 class="section-title">対応エリア</h2>
+    <p class="section-desc">松本市を中心に、信州エリアの不動産売却を幅広くサポートしています。</p>
+    <div class="area-map-grid">
+      <div class="area-map-placeholder">📍 地図エリア：対応エリアのマップ画像</div>
+      <div class="area-list">
+        <div class="area-group">
+          <h3>🏔️ 中信エリア（メイン対応）</h3>
+          <div class="area-tags">
+            <span class="area-tag main">松本市</span>
+            <span class="area-tag main">塩尻市</span>
+            <span class="area-tag main">安曇野市</span>
+            <span class="area-tag">大町市</span>
+            <span class="area-tag">木曽町</span>
+            <span class="area-tag">山形村</span>
+            <span class="area-tag">朝日村</span>
+            <span class="area-tag">筑北村</span>
+            <span class="area-tag">池田町</span>
+            <span class="area-tag">松川村</span>
+          </div>
+        </div>
+        <div class="area-group">
+          <h3>🌄 南信エリア</h3>
+          <div class="area-tags">
+            <span class="area-tag">諏訪市</span>
+            <span class="area-tag">岡谷市</span>
+            <span class="area-tag">茅野市</span>
+            <span class="area-tag">伊那市</span>
+            <span class="area-tag">駒ヶ根市</span>
+            <span class="area-tag">飯田市</span>
+          </div>
+        </div>
+        <div class="area-group">
+          <h3>🏯 東信・北信エリア</h3>
+          <div class="area-tags">
+            <span class="area-tag">長野市</span>
+            <span class="area-tag">上田市</span>
+            <span class="area-tag">佐久市</span>
+            <span class="area-tag">千曲市</span>
+            <span class="area-tag">小諸市</span>
+            <span class="area-tag">須坂市</span>
+          </div>
+        </div>
+        <div class="area-note">
+          <strong>💡 上記以外のエリアもご相談ください。</strong><br>
+          長野県全域に対応可能です。遠方の物件でも、まずはお気軽に無料査定をお申し込みください。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 改善3: STAFF -->
+<section class="section staff-section">
+  <div class="container">
+    <p class="section-label en">Staff</p>
+    <h2 class="section-title">代表ごあいさつ</h2>
+    <div class="staff-grid">
+      <div class="staff-photo">📷 写真エリア：代表者のポートレート</div>
+      <div class="staff-info">
+        <h3>山田 太郎</h3>
+        <p class="staff-role">代表取締役 ／ 宅地建物取引士</p>
+        <p>信州で生まれ育ち、不動産業界一筋20年。大手仲介会社での経験を経て、「地域に根ざした不動産屋」を目指し独立しました。</p>
+        <p>大手では対応が難しい「空き家」「相続物件」「農地付き物件」なども、地域のネットワークを活かして丁寧に対応いたします。</p>
+        <div class="staff-quote">
+          「お客様の不動産には、ご家族の思い出が詰まっています。<br>その想いを大切にしながら、最善の売却をお手伝いします。」
+        </div>
+        <div class="staff-certs">
+          <span class="staff-cert">宅地建物取引士</span>
+          <span class="staff-cert">不動産コンサルティングマスター</span>
+          <span class="staff-cert">ファイナンシャルプランナー2級</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="section flow-section">
+  <div class="container">
+    <p class="section-label en">Flow</p>
+    <h2 class="section-title">かんたん4ステップで売却完了</h2>
+    <p class="section-desc">お問い合わせから売却完了まで、すべて私たちがサポートします。</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num en">1</div>
+        <h3>無料査定を申込む</h3>
+        <p>フォームまたはお電話で<br>お気軽にご連絡ください</p>
+        <span class="flow-free">無料</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">2</div>
+        <h3>現地調査・査定</h3>
+        <p>経験豊富なスタッフが<br>物件を直接確認します</p>
+        <span class="flow-free">無料</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">3</div>
+        <h3>売却活動スタート</h3>
+        <p>最適な販売戦略で<br>買い手を見つけます</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">4</div>
+        <h3>契約・お引渡し</h3>
+        <p>手続き・税金の相談も<br>すべてサポートします</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE -->
+<section class="section voice-section">
+  <div class="container">
+    <p class="section-label en">Voice</p>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="voice-meta">
+          <div class="voice-avatar">👨</div>
+          <div><p class="voice-name">T.S 様（60代・男性）</p><p class="voice-detail">松本市 / 戸建て売却</p></div>
+        </div>
+        <p class="voice-text">相続した実家の処分で困っていましたが、地域の相場を詳しく教えてもらい安心してお任せできました。大手にも相談しましたが、みどり不動産さんのほうが<strong>査定額が200万円も高く</strong>、結果的に希望以上の価格で売却できました。</p>
+        <div class="voice-stars">★★★★★</div>
+      </div>
+      <div class="voice-card">
+        <div class="voice-meta">
+          <div class="voice-avatar">👩</div>
+          <div><p class="voice-name">M.K 様（50代・女性）</p><p class="voice-detail">安曇野市 / 土地売却</p></div>
+        </div>
+        <p class="voice-text">遠方に住んでいるため、手続きがとにかく不安でした。でも担当の方が書類の準備から登記まで全部段取りしてくれて、<strong>ほとんど手間なく売却が完了</strong>しました。電話の対応もいつも丁寧で、信頼できる会社です。</p>
+        <div class="voice-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="container">
+    <p class="section-label en">FAQ</p>
+    <h2 class="section-title">よくあるご質問</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-icon en">Q</span>査定だけでもいいですか？</div>
+        <div class="faq-a">はい、もちろんです。「まずはいくらか知りたい」というご相談だけでも大歓迎です。査定後に売却を見送られるお客様も多くいらっしゃいます。無理な営業は一切いたしません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-icon en">Q</span>売却にかかる費用はどれくらい？</div>
+        <div class="faq-a">仲介手数料（売却価格の3%+6万円+税）が主な費用です。その他、印紙税や登記費用などがかかる場合がありますが、事前に全てご説明いたしますのでご安心ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-icon en">Q</span>遠方に住んでいても売却できますか？</div>
+        <div class="faq-a">はい、可能です。お電話やオンラインでのやり取りで進められます。必要な立ち会いは最小限に抑え、郵送での手続きも対応しております。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-icon en">Q</span>古い家でも売れますか？</div>
+        <div class="faq-a">築年数が古い物件でも、立地や土地の価値で売却できるケースは多くあります。更地にするべきか、リフォームすべきかも含めて最適なご提案をいたします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta-section">
+  <div class="cta-inner">
+    <p class="section-label en" style="color: rgba(255,255,255,0.6);">Contact</p>
+    <h2 class="section-title">まずは無料査定から<br>始めてみませんか？</h2>
+    <p class="cta-desc">「いくらで売れるか知りたい」だけでもOK。<br>あなたの大切な不動産、地域のプロが丁寧に査定します。</p>
+    <p class="cta-tel en">0120-XXX-XXX</p>
+    <p class="cta-tel-note">受付時間 9:00〜18:00（土日祝も対応）</p>
+    <a href="#" class="btn-white">📩 無料査定を申し込む</a>
+    <p style="margin-top: 10px; font-size: 0.7rem; color: rgba(255,255,255,0.5);">※ 査定は完全無料です。売却の義務はありません。</p>
+  </div>
+</section>
+
+<!-- COMPANY -->
+<section class="section company-section">
+  <div class="container">
+    <p class="section-label en">Company</p>
+    <h2 class="section-title">会社概要</h2>
+    <dl class="company-table">
+      <div class="company-row"><dt>会社名</dt><dd>株式会社みどり不動産（架空の会社です）</dd></div>
+      <div class="company-row"><dt>所在地</dt><dd>〒390-XXXX 長野県松本市中央X-X-X</dd></div>
+      <div class="company-row"><dt>設立</dt><dd>2005年4月</dd></div>
+      <div class="company-row"><dt>代表</dt><dd>山田 太郎</dd></div>
+      <div class="company-row"><dt>免許番号</dt><dd>長野県知事（4）第XXXXX号</dd></div>
+      <div class="company-row"><dt>営業時間</dt><dd>9:00〜18:00（土日祝も対応）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="logo-footer">みどり不動産</p>
+  <p>〒390-XXXX 長野県松本市中央X-X-X ｜ TEL: 0120-XXX-XXX</p>
+  <p style="margin-top: 6px;">© 2025 みどり不動産 All rights reserved.　※本サイトは架空の企業のサンプルLPです</p>
+</footer>
+
+<!-- 改善5: スマホ追従CTA -->
+<div class="mobile-cta">
+  <div class="mobile-cta-inner">
+    <a href="tel:0120000000" class="mobile-cta-tel">📞 電話で相談</a>
+    <a href="#cta" class="mobile-cta-form">📩 無料査定</a>
+  </div>
+</div>
+
+</body>
+</html>

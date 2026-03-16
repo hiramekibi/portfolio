@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>柊の別れ｜売れるLPを作る人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #111111;
+  --white: #FAFAFA;
+  --offwhite: #F5F4F0;
+  --accent: #E8C840;
+  --text-dark: #1A1A1A;
+  --text-dark-sub: #444444;
+  --text-light: #F0F0F0;
+  --text-light-sub: #CCCCCC;
+  --border-dark: rgba(255,255,255,0.12);
+  --border-light: rgba(0,0,0,0.08);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text-dark);
+  background: var(--offwhite);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.en { font-family: 'Outfit', sans-serif; }
+
+/* ========== HEADER ========== */
+header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+  padding: 16px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: #111111;
+  border-bottom: none;
+}
+.logo {
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--text-light);
+  display: flex; align-items: center; gap: 8px;
+}
+.logo::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+}
+nav { display: flex; gap: 32px; }
+nav a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-light-sub);
+  transition: color 0.3s;
+}
+nav a:hover { color: var(--white); }
+
+/* ========== HERO (白背景) ========== */
+.hero {
+  background: var(--offwhite);
+  padding: 100px 40px 60px;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.hero-inner {
+  max-width: 1200px; width: 100%; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-dark-sub);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+.hero-title .highlight {
+  background: var(--accent);
+  padding: 0 8px;
+  display: inline;
+}
+.hero-sub {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.hero-desc {
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--text-dark-sub);
+  max-width: 480px;
+}
+
+/* --- 右側: 業界カード --- */
+.hero-right {
+  display: flex; flex-direction: column; gap: 0;
+}
+.industry-card {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  transition: background 0.3s;
+}
+.industry-card:hover {
+  background: rgba(0,0,0,0.02);
+}
+.industry-card:first-child {
+  border-top: 1px solid var(--border-light);
+}
+.industry-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-dark);
+}
+.industry-num span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  vertical-align: super;
+  margin-left: 2px;
+}
+.industry-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.industry-body .en-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark-sub);
+  margin-bottom: 8px;
+}
+.industry-body p {
+  font-size: 0.82rem;
+  color: var(--text-dark-sub);
+  line-height: 1.7;
+}
+.hero-stats-row {
+  display: flex; gap: 32px;
+  padding: 24px 32px 0;
+}
+.stat-chip {
+  display: flex; align-items: baseline; gap: 4px;
+}
+.stat-chip .num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem; font-weight: 800;
+  color: var(--text-dark);
+}
+.stat-chip .unit {
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--text-dark);
+}
+.stat-chip .label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dark-sub);
+  margin-left: 8px;
+}
+
+/* ========== SECTION BASE ========== */
+.section { padding: 80px 40px; }
+.section-dark { background: var(--black); color: var(--text-light); }
+.section-light { background: var(--offwhite); color: var(--text-dark); }
+
+.section-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em;
+  margin-bottom: 4px;
+}
+.section-dark .section-num { color: var(--accent); }
+.section-light .section-num { color: var(--accent); }
+
+.section-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* ========== 01 ABOUT (黒背景) ========== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-text p {
+  font-size: 0.92rem;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+.section-dark .about-text p {
+  color: var(--text-light-sub);
+}
+.about-text strong {
+  color: var(--text-light);
+  font-weight: 700;
+}
+.about-text .accent-line {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-top: 20px;
+}
+.about-text .accent-line em {
+  background: var(--accent);
+  color: var(--black);
+  font-style: normal;
+  padding: 2px 8px;
+}
+.about-cta {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 36px;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.section-dark .about-cta:hover {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+/* Timeline */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: rgba(255,255,255,0.15);
+}
+.tl-item {
+  position: relative; padding-bottom: 28px;
+}
+.tl-item::before {
+  content: ''; position: absolute; left: -28px; top: 6px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+}
+.tl-year {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.tl-title {
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+.tl-desc {
+  font-size: 0.78rem;
+  color: var(--text-light-sub);
+  line-height: 1.7;
+}
+.tl-badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  background: var(--accent);
+  color: var(--black);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ========== 02 SKILLS (白背景) ========== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.skill-card {
+  background: var(--white);
+  padding: 36px 28px;
+  border: 1px solid var(--border-light);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+}
+.skill-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+.skill-card .en-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dark-sub);
+  margin-bottom: 12px;
+}
+.skill-card p {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--text-dark-sub);
+}
+.skill-bar {
+  margin-top: 16px;
+  height: 3px;
+  background: var(--border-light);
+  position: relative;
+}
+.skill-bar-fill {
+  position: absolute; left: 0; top: 0; height: 100%;
+  background: var(--accent);
+}
+
+/* ========== 03 WORKS (黒背景) ========== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.work-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-dark);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.work-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.work-card a { display: block; color: inherit; text-decoration: none; }
+.work-thumb {
+  width: 100%; aspect-ratio: 16/9;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem; font-weight: 600;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+.work-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.work-card:hover .work-thumb img { transform: scale(1.05); }
+.work-thumb-iframe-wrap {
+  width: 1280px; height: 720px;
+  transform: scale(0.4453);
+  transform-origin: top left;
+  pointer-events: none;
+}
+.work-thumb-iframe-wrap iframe {
+  width: 1280px; height: 720px;
+  border: none;
+}
+.work-thumb.has-iframe {
+  display: block;
+  position: relative;
+}
+.work-thumb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.5) 100%);
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.work-card:hover .work-thumb-overlay { opacity: 1; }
+.work-thumb-overlay span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  color: white;
+  background: var(--accent);
+  color: #111;
+  padding: 4px 12px;
+  letter-spacing: 0.08em;
+}
+.work-badge {
+  position: absolute; top: 12px; right: 12px;
+  padding: 3px 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: 3px;
+  z-index: 1;
+}
+.work-badge-live {
+  background: var(--accent);
+  color: #111;
+}
+.work-badge-soon {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+}
+.work-info { padding: 24px; }
+.work-info h3 {
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-light);
+}
+.work-info p {
+  font-size: 0.78rem; color: var(--text-light-sub);
+  line-height: 1.7;
+}
+.work-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+.work-tag {
+  padding: 3px 10px;
+  font-size: 0.65rem; font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text-light-sub);
+  letter-spacing: 0.05em;
+}
+
+/* ========== 04 SERVICES (白背景) ========== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.service-card {
+  padding: 40px 32px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  transition: box-shadow 0.3s;
+}
+.service-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.service-card .price-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: rgba(232,200,64,0.1);
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+.service-card h3 {
+  font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+.service-card p {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--text-dark-sub);
+}
+.service-features {
+  margin-top: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.service-features li {
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--text-dark-sub);
+  padding-left: 16px;
+  position: relative;
+}
+.service-features li::before {
+  content: '→';
+  position: absolute; left: 0;
+  color: var(--accent);
+}
+
+/* ========== 05 CONTACT (黒背景) ========== */
+.contact-inner {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-inner p {
+  font-size: 0.9rem;
+  color: var(--text-light-sub);
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+.contact-btn {
+  display: inline-block;
+  padding: 18px 56px;
+  background: var(--accent);
+  color: var(--black);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.contact-btn:hover {
+  background: #d4b530;
+  transform: translateY(-2px);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--border-dark);
+  padding: 24px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer .copy {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+}
+footer nav a { color: rgba(255,255,255,0.4); font-size: 0.65rem; }
+footer nav a:hover { color: var(--text-light); }
+
+/* ========== MINI PREVIEW (Portfolio Self-Thumbnail) ========== */
+.mini-preview {
+  width: 100%; height: 100%;
+  position: absolute; top: 0; left: 0;
+  background: #F5F4F0;
+  overflow: hidden;
+  padding: 0;
+}
+.mini-header {
+  background: #111;
+  padding: 4px 12px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mini-logo-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #E8C840;
+}
+.mini-nav-dots { display: flex; gap: 6px; }
+.mini-nav-dots span {
+  width: 16px; height: 2px; border-radius: 1px;
+  background: rgba(255,255,255,.25);
+}
+.mini-hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; padding: 12px 12px 8px;
+  background: #F5F4F0;
+}
+.mini-hero-left { display: flex; flex-direction: column; gap: 4px; justify-content: center; }
+.mini-label {
+  width: 36px; height: 2px; background: rgba(0,0,0,.15); border-radius: 1px;
+}
+.mini-title-1 {
+  width: 85%; height: 7px; background: #1A1A1A; border-radius: 1px;
+}
+.mini-title-2 {
+  width: 60%; height: 7px; background: #1A1A1A; border-radius: 1px;
+}
+.mini-title-accent {
+  width: 45%; height: 7px; background: #E8C840; border-radius: 1px;
+}
+.mini-desc { display: flex; flex-direction: column; gap: 2px; margin-top: 2px; }
+.mini-desc span {
+  height: 2px; border-radius: 1px; background: rgba(0,0,0,.12);
+}
+.mini-desc span:nth-child(1) { width: 90%; }
+.mini-desc span:nth-child(2) { width: 75%; }
+.mini-desc span:nth-child(3) { width: 60%; }
+.mini-hero-right { display: flex; flex-direction: column; gap: 0; }
+.mini-indcard {
+  display: flex; gap: 6px; align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.mini-indcard:first-child { border-top: 1px solid rgba(0,0,0,.06); }
+.mini-indnum {
+  font-family: 'Outfit', sans-serif;
+  font-size: 9px; font-weight: 800;
+  color: #1A1A1A; line-height: 1;
+  min-width: 14px;
+}
+.mini-indlines { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.mini-indlines span {
+  height: 2px; border-radius: 1px; background: rgba(0,0,0,.12);
+}
+.mini-indlines span:first-child { width: 60%; background: rgba(0,0,0,.25); }
+.mini-indlines span:last-child { width: 85%; }
+.mini-section { padding: 8px 12px; }
+.mini-sec-dark { background: #111; }
+.mini-sec-light { background: #F5F4F0; }
+.mini-sec-label {
+  width: 14px; height: 2px; border-radius: 1px; margin-bottom: 2px;
+}
+.mini-sec-dark .mini-sec-label { background: #E8C840; }
+.mini-sec-light .mini-sec-label { background: #E8C840; }
+.mini-sec-heading {
+  width: 40px; height: 5px; border-radius: 1px; margin-bottom: 6px;
+}
+.mini-sec-dark .mini-sec-heading { background: rgba(255,255,255,.85); }
+.mini-sec-light .mini-sec-heading { background: #1A1A1A; }
+.mini-sec-content { display: flex; flex-direction: column; gap: 2px; }
+.mini-sec-content span {
+  height: 2px; border-radius: 1px;
+}
+.mini-sec-dark .mini-sec-content span { background: rgba(255,255,255,.15); }
+.mini-sec-dark .mini-sec-content span:first-child { width: 90%; }
+.mini-sec-dark .mini-sec-content span:last-child { width: 70%; }
+.mini-sec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 4px; }
+.mini-sec-grid span {
+  height: 18px; border-radius: 2px;
+}
+.mini-sec-dark .mini-sec-grid span { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+.mini-sec-dark .mini-sec-grid { grid-template-columns: repeat(4,1fr); }
+.mini-sec-light .mini-sec-grid span { background: #fff; border: 1px solid rgba(0,0,0,.06); }
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-inner { animation: fadeUp 0.8s ease-out; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  header { padding: 12px 20px; }
+  nav { gap: 16px; }
+  nav a { font-size: 0.6rem; }
+  
+  .hero { padding: 80px 20px 40px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero-title { font-size: 2.2rem; }
+  
+  .section { padding: 60px 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .works-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  
+  .hero-stats-row { flex-direction: column; gap: 16px; }
+  
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">柊の別れ</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#works">Works</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO (白背景) -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-label en">Web Creator — Portfolio 2025</p>
+      <h1 class="hero-title">売れる<br><span class="highlight">LP</span>を<br>作る人</h1>
+      <p class="hero-sub">営業も、<br>編集も、<br>できる人。</p>
+      <p class="hero-desc">不動産営業の現場とWebメディア編集の両方を経験した制作者。「なぜ売れるか」を知っているからこそ、数字につながるLPを作れます。</p>
+    </div>
+    <div class="hero-right">
+      <!-- 業界カード：数字+業界名を大きく見せる -->
+      <div class="industry-card">
+        <div class="industry-num en">01</div>
+        <div class="industry-body">
+          <h3>不動産営業</h3>
+          <p class="en-label en">Real Estate Sales</p>
+          <p>「人が動く理由」を現場で叩き込まれた。提案・クロージングの原点。</p>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-num en">02</div>
+        <div class="industry-body">
+          <h3>漫画編集 × Webメディア</h3>
+          <p class="en-label en">Editorial & Web Media</p>
+          <p>PVを10万→50万に成長。SEOとコンテンツ設計で数字を作る。</p>
+        </div>
+      </div>
+      <div class="industry-card">
+        <div class="industry-num en">03</div>
+        <div class="industry-body">
+          <h3>ファッションブランド企画</h3>
+          <p class="en-label en">Fashion Brand Planning</p>
+          <p>ブランド戦略・EC運営・商品ページ設計。世界観を売上に変換。</p>
+        </div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="stat-chip">
+          <span class="num en">50</span><span class="unit">万PV</span>
+          <span class="label en">Achieved</span>
+        </div>
+        <div class="stat-chip">
+          <span class="num en">5</span><span class="unit">倍</span>
+          <span class="label en">Growth</span>
+        </div>
+        <div class="stat-chip">
+          <span class="num en">3</span><span class="unit">業界</span>
+          <span class="label en">Experience</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 ABOUT (黒背景) -->
+<section id="about" class="section section-dark">
+  <div class="container">
+    <p class="section-num en">01</p>
+    <h2 class="section-heading en">About</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>不動産営業として<strong>「なぜ人は動くのか」</strong>を叩き込まれ、Webメディア編集者として<strong>月間PVを10万から50万まで伸ばした</strong>経験を持ちます。</p>
+        <p>現在はファッションブランドのEC運営にも携わり、シックな世界観からポップなデザインまで、幅広い案件に対応できるのが強みです。</p>
+        <p class="accent-line">デザインは目的への手段。あなたのサービスが<em>「選ばれる」</em>ために、言葉とデザインの両方から設計します。</p>
+        <a href="#contact" class="about-cta">まず相談してみる →</a>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <p class="tl-year en">~2018</p>
+          <p class="tl-title">不動産投資営業</p>
+          <p class="tl-desc">ゼロから顧客を開拓し、提案・クロージングを担当。「売る」思考の原点。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-year en">2019</p>
+          <p class="tl-title">漫画編集者</p>
+          <p class="tl-desc">作家との二人三脚でコンテンツを磨き、読者に届ける編集の視点を培う。</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-year en">2021</p>
+          <p class="tl-title">WEBメディア運営・SEO編集</p>
+          <p class="tl-desc">WEBメディアの運営・SEO編集を担当。</p>
+          <span class="tl-badge">PV 10万 → 50万 達成</span>
+        </div>
+        <div class="tl-item">
+          <p class="tl-year en">2023</p>
+          <p class="tl-title">ファッションブランド企画</p>
+          <p class="tl-desc">バッグブランドのプランナー。ブランド戦略・Web施策・商品ページ設計を担当。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SKILLS (白背景) -->
+<section id="skills" class="section section-light">
+  <div class="container">
+    <p class="section-num en">02</p>
+    <h2 class="section-heading en">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🎯</div>
+        <h3>セールスライティング</h3>
+        <p class="en-sub en">Sales Writing</p>
+        <p>不動産営業で培った「人を動かす言葉」をLP・広告コピーに落とし込みます。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>SEO / コンテンツ設計</h3>
+        <p class="en-sub en">SEO & Content Strategy</p>
+        <p>月間PV 5倍成長の実績。検索意図を読み、成果に繋がる構成を設計。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>HTML / CSS コーディング</h3>
+        <p class="en-sub en">Frontend Coding</p>
+        <p>レスポンシブ対応のLP・Webサイトを制作。デザインカンプからの実装も対応。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🖼️</div>
+        <h3>Webデザイン</h3>
+        <p class="en-sub en">Web Design</p>
+        <p>Figma / Canvaでの制作。世界観の構築からUI設計まで。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🤝</div>
+        <h3>営業・ディレクション</h3>
+        <p class="en-sub en">Sales & Direction</p>
+        <p>クライアントの課題を引き出し、ゴールまで伴走する進行力。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">✏️</div>
+        <h3>編集・ライティング</h3>
+        <p class="en-sub en">Editing & Writing</p>
+        <p>漫画編集・メディア運営で磨いた構成力と読みやすさの設計。</p>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 WORKS (黒背景) -->
+<section id="works" class="section section-dark">
+  <div class="container">
+    <p class="section-num en">03</p>
+    <h2 class="section-heading en">Works</h2>
+    <div class="works-grid">
+      <div class="work-card">
+        <a href="lp-real-estate-v2.html" target="_blank">
+          <div class="work-thumb has-iframe">
+            <span class="work-badge work-badge-live">LIVE</span>
+            <div class="work-thumb-iframe-wrap">
+              <iframe src="lp-real-estate-v2.html" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            </div>
+            <div class="work-thumb-overlay"><span>VIEW PROJECT →</span></div>
+          </div>
+          <div class="work-info">
+            <h3>不動産売却・無料査定LP</h3>
+            <p>地域密着型の不動産会社向け売却査定LP。50〜60代のペルソナ分析に基づき、FV査定フォーム・対応エリア表示・代表挨拶・追従CTAを実装。競合分析 → 改善設計 → 制作まで一貫対応。</p>
+            <div class="work-tags">
+              <span class="work-tag">LP制作</span>
+              <span class="work-tag">競合分析</span>
+              <span class="work-tag">ペルソナ設計</span>
+              <span class="work-tag">コピーライティング</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="work-card">
+        <a href="nail-salon-lp.html" target="_blank">
+          <div class="work-thumb has-iframe">
+            <span class="work-badge work-badge-live">LIVE</span>
+            <div class="work-thumb-iframe-wrap">
+              <iframe src="nail-salon-lp.html" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+            </div>
+            <div class="work-thumb-overlay"><span>VIEW PROJECT →</span></div>
+          </div>
+          <div class="work-info">
+            <h3>ネイルサロン・初回体験予約LP</h3>
+            <p>個人経営ネイルサロン向け集客LP。20〜40代女性ペルソナ分析に基づき、Cormorant Garamond×ベージュ配色で雑誌的世界観を構築。LINE予約連携・追従CTA・FAQ実装。</p>
+            <div class="work-tags">
+              <span class="work-tag">LP制作</span>
+              <span class="work-tag">ペルソナ設計</span>
+              <span class="work-tag">女性向けデザイン</span>
+              <span class="work-tag">LINE連携</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">
+          <span class="work-badge work-badge-soon">COMING SOON</span>
+          COMING SOON
+        </div>
+        <div class="work-info">
+          <h3>Webメディア記事設計</h3>
+          <p>SEO記事の構成設計。検索上位表示を狙い月間PV成長に貢献。</p>
+          <div class="work-tags">
+            <span class="work-tag">SEO</span>
+            <span class="work-tag">コンテンツ</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb" style="display:block;position:relative">
+          <span class="work-badge work-badge-live">LIVE</span>
+          <!-- CSS Mini Preview of this site -->
+          <div class="mini-preview">
+            <!-- Mini header -->
+            <div class="mini-header">
+              <div class="mini-logo-dot"></div>
+              <div class="mini-nav-dots"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <!-- Mini hero (2-column) -->
+            <div class="mini-hero">
+              <div class="mini-hero-left">
+                <div class="mini-label"></div>
+                <div class="mini-title-1"></div>
+                <div class="mini-title-2"></div>
+                <div class="mini-title-accent"></div>
+                <div class="mini-desc"><span></span><span></span><span></span></div>
+              </div>
+              <div class="mini-hero-right">
+                <div class="mini-indcard"><div class="mini-indnum">01</div><div class="mini-indlines"><span></span><span></span></div></div>
+                <div class="mini-indcard"><div class="mini-indnum">02</div><div class="mini-indlines"><span></span><span></span></div></div>
+                <div class="mini-indcard"><div class="mini-indnum">03</div><div class="mini-indlines"><span></span><span></span></div></div>
+              </div>
+            </div>
+            <!-- Mini sections (alternating) -->
+            <div class="mini-section mini-sec-dark">
+              <div class="mini-sec-label"></div>
+              <div class="mini-sec-heading"></div>
+              <div class="mini-sec-content"><span></span><span></span></div>
+            </div>
+            <div class="mini-section mini-sec-light">
+              <div class="mini-sec-label"></div>
+              <div class="mini-sec-heading"></div>
+              <div class="mini-sec-grid"><span></span><span></span><span></span></div>
+            </div>
+            <div class="mini-section mini-sec-dark">
+              <div class="mini-sec-label"></div>
+              <div class="mini-sec-heading"></div>
+              <div class="mini-sec-grid"><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-info">
+          <h3>ポートフォリオサイト</h3>
+          <p>本サイト。HTML/CSSでのフルスクラッチ制作。白×黒×ゴールドのミニマルデザイン。</p>
+          <div class="work-tags">
+            <span class="work-tag">Webサイト</span>
+            <span class="work-tag">デザイン</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 SERVICES (白背景) -->
+<section id="services" class="section section-light">
+  <div class="container">
+    <p class="section-num en">04</p>
+    <h2 class="section-heading en">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="price-tag en">¥50,000~</span>
+        <h3>LP制作（デザイン+コーディング）</h3>
+        <p>ヒアリングから構成・デザイン・コーディングまで一貫対応。営業視点で「売れる」LPを制作します。</p>
+        <ul class="service-features">
+          <li>構成案作成</li>
+          <li>デザイン制作（Figma）</li>
+          <li>HTML/CSSコーディング</li>
+          <li>レスポンシブ対応</li>
+          <li>SEO基本設定</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="price-tag en">¥10,000~</span>
+        <h3>Webサイト修正・更新</h3>
+        <p>既存サイトのテキスト変更、画像差し替え、レイアウト調整などの修正を迅速対応。</p>
+        <ul class="service-features">
+          <li>HTML/CSS修正</li>
+          <li>テキスト・画像差し替え</li>
+          <li>レイアウト調整</li>
+          <li>WordPress軽微修正</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CONTACT (黒背景) -->
+<section id="contact" class="section section-dark">
+  <div class="container">
+    <p class="section-num en">05</p>
+    <h2 class="section-heading en">Contact</h2>
+    <div class="contact-inner">
+      <p>「こんなLP作れる？」「ちょっと相談だけ」でもOKです。<br>まずはお気軽にご連絡ください。</p>
+      <a href="https://coconala.com/" class="contact-btn" target="_blank">ココナラで相談する →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="copy en">© 2025 柊の別れ — All rights reserved.</span>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#works">Works</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>
